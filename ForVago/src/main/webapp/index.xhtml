@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>ForVagos</title>
+    </h:head>
+    <h:body>
+
+        <header>
+            
+            <h:graphicImage value="resources/images/logo_small.png"/>
+            <p:button outcome="customer/register" value="Registrarse"></p:button>
+            <p:button outcome="login" value="Identificarse"></p:button>
+        </header>
+        <section>
+            <h2>Encuentra tu hotel ideal <br/>Sin moverte del sofá</h2>
+            <h:form>
+                <p:inputText />
+            </h:form>
+            <p:link outcome="search/index" >  
+                <h:graphicImage  value="resources/images/Homero-en-el-sofa.gif"/>
+            </p:link>
+        </section>
+        <br />
+        <!--<h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />-->
+    </h:body>
+</html>
+

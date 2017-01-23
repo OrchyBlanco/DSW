@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-ene-2017 13:02:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="es.cifpcm.forvagos.pojos.Temporada" table="temporada" catalog="forvagos">
+        <id name="idTemporada" type="java.lang.Integer">
+            <column name="id_Temporada" />
+            <generator class="identity"></generator>
+        </id>
+        <many-to-one name="hotel" class="es.cifpcm.forvagos.pojos.Hotel" fetch="select">
+            <column name="id_hotel" unique="true" />
+        </many-to-one>
+        <property name="temporadaAlta" type="java.lang.Boolean">
+            <column name="temporada_alta" />
+        </property>
+        <property name="fechaInicio" type="date">
+            <column name="fecha_inicio" length="10" />
+        </property>
+        <property name="fechaFin" type="date">
+            <column name="fecha_fin" length="10" />
+        </property>
+        <property name="modDescuentoIncremento" type="java.lang.Short">
+            <column name="Mod_descuento_incremento" />
+        </property>
+    </class>
+</hibernate-mapping>

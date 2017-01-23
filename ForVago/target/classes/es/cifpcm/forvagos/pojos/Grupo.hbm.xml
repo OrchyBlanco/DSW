@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-ene-2017 13:02:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="es.cifpcm.forvagos.pojos.Grupo" table="grupo" catalog="forvagos">
+        <id name="idGrupo" type="java.lang.Integer">
+            <column name="id_grupo" />
+            <generator class="identity"></generator>
+        </id>
+        <property name="admin" type="java.lang.Boolean">
+            <column name="admin" />
+        </property>
+        <property name="manager" type="java.lang.Boolean">
+            <column name="manager" />
+        </property>
+        <property name="clientes" type="java.lang.Boolean">
+            <column name="clientes" />
+        </property>
+        <set name="usuarioGrupos" table="usuario_grupo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_grupo" not-null="true" />
+            </key>
+            <one-to-many class="es.cifpcm.forvagos.pojos.UsuarioGrupo" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-ene-2017 13:02:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="es.cifpcm.pojos.Reservas" table="reservas" catalog="forvagos" optimistic-lock="version">
+        <id name="idReserva" type="java.lang.Integer">
+            <column name="id_reserva" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cliente" class="es.cifpcm.pojos.Cliente" fetch="select">
+            <column name="id_cliente" not-null="true" unique="true" />
+        </many-to-one>
+        <many-to-one name="hotel" class="es.cifpcm.pojos.Hotel" fetch="select">
+            <column name="id_hotel" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="fechaInit" type="date">
+            <column name="fecha_init" length="10" not-null="true" unique="true" />
+        </property>
+        <property name="fechaFin" type="date">
+            <column name="fecha_fin" length="10" not-null="true" />
+        </property>
+        <property name="precioTotal" type="big_decimal">
+            <column name="precioTotal" precision="10" />
+        </property>
+    </class>
+</hibernate-mapping>

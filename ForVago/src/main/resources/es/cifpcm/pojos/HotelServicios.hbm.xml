@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-ene-2017 13:02:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="es.cifpcm.pojos.HotelServicios" table="hotel_servicios" catalog="forvagos" optimistic-lock="version">
+        <id name="idHotelServicio" type="java.lang.Integer">
+            <column name="id_hotel_servicio" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="hotel" class="es.cifpcm.pojos.Hotel" fetch="select">
+            <column name="id_hotel" unique="true" />
+        </many-to-one>
+        <many-to-one name="servicio" class="es.cifpcm.pojos.Servicio" fetch="select">
+            <column name="id_servicio" unique="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

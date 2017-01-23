@@ -1,0 +1,16 @@
+es\cifpcm\forvagos\pojos\Reservas.class
+es\cifpcm\forvagos\pojos\Hotel.class
+es\cifpcm\forvagos\pojos\HotelServicios.class
+es\cifpcm\forvagos\pojos\Temporada.class
+es\cifpcm\forvagos\dao\ClienteDAO.class
+es\cifpcm\forvagos\dao\UsuarioGrupoDAO.class
+es\cifpcm\forvagos\dao\UsuarioDAO.class
+es\cifpcm\forvagos\pojos\Grupo.class
+es\cifpcm\forvagos\pojos\Cliente.class
+es\cifpcm\forvagos\pojos\UsuarioGrupo.class
+es\cifpcm\forvagos\dao\HibernateUtil.class
+es\cifpcm\forvagos\pojos\Usuario.class
+es\cifpcm\forvagos\dao\GrupoDAO.class
+es\cifpcm\forvagos\pojos\Servicio.class
+es\cifpcm\forvagos\pojos\Provincias.class
+es\cifpcm\forvagos\pojos\Municipios.class

@@ -21,14 +21,52 @@ import javax.faces.event.ValueChangeEvent;
  *
  * @author 2dawb
  */
-@Named(value = "language")
+@ManagedBean(name = "language")
 @SessionScoped
 public class LanguageBean implements Serializable{
 
-    /**
-     * Creates a new instance of LanguageBean
-     */
-    public LanguageBean() {
-    }
+   private static final long serialVersionUID = 1L;
+
+	private String localeCode;
+
+	private static Map<String,Object> countries;
+	static{
+		countries = new LinkedHashMap<String,Object>();
+                countries.put("Español", new Locale("es","ES"));
+		countries.put("English", Locale.ENGLISH); //label, valor
+		
+	}
+
+	public Map<String, Object> getCountriesInMap() {
+		return countries;
+	}
+
+
+	public String getLocaleCode() {
+		return localeCode;
+	}
+
+
+	public void setLocaleCode(String localeCode) {
+		this.localeCode = localeCode;
+	}
+
+	//value change event listener
+	public void countryLocaleCodeChanged(ValueChangeEvent e){
+
+		String newLocaleValue = e.getNewValue().toString();
+
+		//loop country map to compare the locale code
+                for (Map.Entry<String, Object> entry : countries.entrySet()) {
+
+        	   if(entry.getValue().toString().equals(newLocaleValue)){
+
+        		FacesContext.getCurrentInstance()
+        			.getViewRoot().setLocale((Locale)entry.getValue());
+
+        	  }
+               }
+	}
+
     
 }

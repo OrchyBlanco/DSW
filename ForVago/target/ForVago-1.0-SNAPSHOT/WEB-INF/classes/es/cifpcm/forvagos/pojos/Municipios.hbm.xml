@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-ene-2017 13:02:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="es.cifpcm.forvagos.pojos.Municipios" table="municipios" catalog="forvagos">
+        <id name="idMunicipio" type="java.lang.Short">
+            <column name="id_municipio" />
+            <generator class="identity"></generator>
+        </id>
+        <many-to-one name="provincias" class="es.cifpcm.forvagos.pojos.Provincias" fetch="select">
+            <column name="id_provincia" not-null="true" />
+        </many-to-one>
+        <property name="codMunicipio" type="int">
+            <column name="cod_municipio" not-null="true">
+                <comment>C&#243;digo de muncipio DENTRO de la provincia, campo no &#250;nico</comment>
+            </column>
+        </property>
+        <property name="dc" type="int">
+            <column name="DC" not-null="true">
+                <comment>Digito Control. El INE no revela c&#243;mo se calcula, secreto nuclear.</comment>
+            </column>
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="100" not-null="true" />
+        </property>
+        <set name="hotels" table="hotel" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_municipio" not-null="true" />
+            </key>
+            <one-to-many class="es.cifpcm.forvagos.pojos.Hotel" />
+        </set>
+    </class>
+</hibernate-mapping>

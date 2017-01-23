@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-ene-2017 13:02:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="es.cifpcm.pojos.Hotel" table="hotel" catalog="forvagos" optimistic-lock="version">
+        <id name="idHotel" type="java.lang.Integer">
+            <column name="id_hotel" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="municipios" class="es.cifpcm.pojos.Municipios" fetch="select">
+            <column name="id_municipio" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="30" not-null="true" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="9" />
+        </property>
+        <property name="fax" type="string">
+            <column name="fax" length="9" />
+        </property>
+        <property name="cp" type="string">
+            <column name="CP" length="5" />
+        </property>
+        <property name="categoria" type="java.lang.Short">
+            <column name="categoria" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="100" />
+        </property>
+        <property name="precioBase" type="big_decimal">
+            <column name="precio_base" precision="10" />
+        </property>
+        <set name="temporadas" table="temporada" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_hotel" unique="true" />
+            </key>
+            <one-to-many class="es.cifpcm.pojos.Temporada" />
+        </set>
+        <set name="reservases" table="reservas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_hotel" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="es.cifpcm.pojos.Reservas" />
+        </set>
+        <set name="hotelServicioses" table="hotel_servicios" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_hotel" unique="true" />
+            </key>
+            <one-to-many class="es.cifpcm.pojos.HotelServicios" />
+        </set>
+    </class>
+</hibernate-mapping>
